@@ -8,10 +8,10 @@ var notes = loadAll('notes');
 var notifications = loadAll('notifications');
 
 bot.on('ready', () =>{
-    console.log('This bot is online')
+    console.log('Logger online')
 })
 
-bot.on('message', msg=>{    
+bot.on('message', msg=>{
     if(msg.content.startsWith(PREFIX)){
 
         var args = msg.content.substring(PREFIX.length).split(" ");
@@ -29,33 +29,33 @@ bot.on('message', msg=>{
                     case 'add':
                         if(args[2]){
                             var raw = save(msg.author.tag, args, 'notes');
-                            if(notes[msg.author.tag] == undefined){                
-                        
+                            if(notes[msg.author.tag] == undefined){
+
                                 notes[msg.author.tag] = [];
                                 notes[msg.author.tag] = [raw[0]];
-                                notes[msg.author.tag].push(raw[1]);    
-                                
+                                notes[msg.author.tag].push(raw[1]);
+
                             }else{
                                 notes[msg.author.tag].push(raw[0]);
                                 notes[msg.author.tag].push(raw[1]);
                             }
-                            
+
                             msg.reply("Added your new note!");
                             break;
                         }else{
                             msg.reply("Correct use: note add <a text>");
-                        }   
-                        break;   
+                        }
+                        break;
                     case 's':
-                    case 'show':                    
+                    case 'show':
                         msg.reply("Searching for notes...");
                         if(notes[msg.author.tag]){
                             let temp = "";
                             for(var i = 0; i < notes[msg.author.tag].length / 2; i++){
-                                temp += i + ":  " + notes[msg.author.tag][i*2] + "\n";                            
+                                temp += i + ":  " + notes[msg.author.tag][i*2] + "\n";
                             }
                             msg.reply(temp);
-                            
+
                         }else{
                             msg.reply("You do not have any notes open.");
                         }
@@ -66,23 +66,23 @@ bot.on('message', msg=>{
                     case 'remove':
                         if(args[2]){
                             let n = notes[msg.author.tag];
-                            remove(n[args[2] * 2 + 1], 'notes');                  
+                            remove(n[args[2] * 2 + 1], 'notes');
                             notes[msg.author.tag].splice(args[2] * 2, 1);
-                            notes[msg.author.tag].splice(args[2] * 2, 1);                    
-                            msg.reply("Removed note NR." + args[2]);  
+                            notes[msg.author.tag].splice(args[2] * 2, 1);
+                            msg.reply("Removed note NR." + args[2]);
                         }else{
                             msg.reply("Correct use: note remove <number>");
                         }
-                    
+
                         break;
-                                                        
-                } 
+
+                }
                 break;
-                
+
             case 'not':
             case 'notification':
-                
-                
+
+
                 switch(args[1]){
                     case 'send':
                     case 's':
@@ -91,12 +91,12 @@ bot.on('message', msg=>{
                             args.shift()
                             var raw = save(args[1], args, 'notifications');
 
-                            if(notifications[msg.author.tag] == undefined){                
-                        
+                            if(notifications[msg.author.tag] == undefined){
+
                                 notifications[msg.author.tag] = [];
                                 notifications[msg.author.tag] = [raw[0]];
-                                notifications[msg.author.tag].push(raw[1]);    
-                                
+                                notifications[msg.author.tag].push(raw[1]);
+
                             }else{
                                 notifications[msg.author.tag].push(raw[0]);
                                 notifications[msg.author.tag].push(raw[1]);
@@ -111,30 +111,29 @@ bot.on('message', msg=>{
                         if(temp == undefined){
                             msg.reply("You do not have any notifications!");
                         }else{
-                            var msg_string = "Here are your notifications:\n";                            
-                            
+                            var msg_string = "Here are your notifications:\n";
+
                             for(var i = 0; i < temp.length/2; i ++){
                                 msg_string += temp[i*2] + "\n\n";
                                 remove(temp[i*2+1] ,'notifications');
-                            }                           
+                            }
 
                             msg.reply(msg_string);
                         }
 
                         notifications[msg.author.tag] = undefined;
-                        
+
                         break;
                     default:
                         msg.reply("Possible subcommands:\nnotification send <user> <some text>\nnotification get");
                         break;
                 }
                 break;
-                    
+
         }
 
-        
+
     }
 })
 
 bot.login(process.env.token);
-
