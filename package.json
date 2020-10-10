@@ -1,0 +1,22 @@
+{
+  "name": "notebot",
+  "version": "1.0.0",
+  "description": "A usefull discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "12.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliasSchramm/NoteBot.git"
+  },
+  "author": "Elias Schramm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EliasSchramm/NoteBot/issues"
+  },
+  "homepage": "https://github.com/EliasSchramm/NoteBot#readme"
+}
