@@ -1,7 +1,7 @@
 {
   "name": "mps-logger",
-  "version": "0.0.1",
-  "description": "Shitty MPS-wide logger. WIP forever.",
+  "version": "1.0.0",
+  "description": "MPS logger",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,14 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/Peiprjs/MPS-logger.git"
   },
-  "keywords": [
-    "hacktoberfest",
-    "nodejs",
-    "discordjs",
-    "discordbot"
-  ],
-  "author": "Peipr#8854",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Peiprjs/MPS-logger/issues"
   },
