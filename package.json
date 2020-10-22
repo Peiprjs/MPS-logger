@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Peiprjs/MPS-logger/issues"
   },
-  "homepage": "https://github.com/Peiprjs/MPS-logger#readme"
+  "homepage": "https://github.com/Peiprjs/MPS-logger#readme",
+  "dependencies": {
+    "discord": "^0.8.2",
+    "trello": "^0.10.0"
+  }
 }
