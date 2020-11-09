@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Peiprjs/MPS-logger#readme",
   "dependencies": {
     "discord": "^0.8.2",
+    "discord.js": "^12.4.0",
     "trello": "^0.10.0"
   }
 }
